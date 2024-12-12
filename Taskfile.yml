@@ -1,0 +1,33 @@
+version: '3'
+
+vars:
+  REGISTRY: remote_docker_registry
+  REPO: repo/image
+  TAG: 0.0.1
+  IMAGE: '{{.REPO}}:{{.TAG}}'
+  REMOTE_IMAGE: '{{.REGISTRY}}/{{.IMAGE}}'
+  SHELL: '{{if eq .OS "Windows_NT"}}powershell{{end}}{{if eq .OS "darwin"}}pwsh{{end}}'
+
+tasks:
+  build:
+    dir: images/flask
+    cmds:
+      - '{{.SHELL}} cp ../../requirements.txt requirements.txt'
+      - '{{.SHELL}} cp ../../flask_json_processor.py flask_json_processor.py'
+      - docker build -t {{.IMAGE}} .
+
+  run:
+    deps:
+      - build
+    cmds:
+      - docker run --name flask -d -p 5000:5000 {{.IMAGE}}
+
+  stop:
+    cmds:
+    - docker stop flask
+
+  remove:
+    deps:
+      - stop
+    cmds:
+      - docker rm flask
