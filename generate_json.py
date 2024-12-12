@@ -1,4 +1,3 @@
-import json
 import requests
 import time
 from faker import Faker
@@ -39,7 +38,7 @@ while count < 100:
             "street": fake.street_address(),
             "city": fake.city(),
             "state": fake.state_abbr(),
-            "zip_code": fake.zipcode(),
+            "zip_code": int(fake.zipcode()),
         },
         "region": fake.country(),
     }
