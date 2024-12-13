@@ -110,14 +110,10 @@ If you prefer not to use Taskfile, you can manually execute the equivalent Docke
 
 ### Error Handling
 For any invalid JSON the API will return:
-- **Status Code**: `400`
-- **Response**:
-  ```json
-  {
-    "status": "error",
-    "message": "Invalid JSON format"
-  }
-  ```
+- **Status Code**: `400` BadRequest
+- **Status Code**: `422` ValueError
+- **Status Code**: `None` Custom message pointing to invalid field in JSON
+- **Status Code**: `500` Exception for all unexpected exceptions
 
 ---
 
