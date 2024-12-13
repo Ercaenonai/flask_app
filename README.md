@@ -53,7 +53,7 @@ Ensure you have [Taskfile](https://taskfile.dev/) installed on your system. The 
 ### Pure Docker Commands
 
 If you prefer not to use Taskfile, you can manually execute the equivalent Docker commands.
-You will need to ensure you have requirement.txt in the images directory.
+You will need to ensure you have requirements.txt in the images directory.
 
 1. **Build the Docker Image**:
    ```bash
