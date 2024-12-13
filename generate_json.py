@@ -3,8 +3,6 @@ import time
 from faker import Faker
 import random
 
-from flask_dev_testing.schema_validation_testing import schema
-
 # local host url
 url = "http://127.0.0.1:5000/ingest"
 
@@ -16,10 +14,10 @@ headers = {
 fake = Faker()
 
 # while loop to randomly generate json records per sleep interval
-for i in range(50):
+for i in range(100):
     payload = {
         "transaction_id": fake.uuid4(),
-        "customer_id": str(random.randint(10000, 99999)),
+        "customer_id": random.randint(10000, 99999),
         "customer_name": fake.name(),
         "transaction_date": fake.date_time_this_year().isoformat(),
         "items": [

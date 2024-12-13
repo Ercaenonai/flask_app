@@ -166,3 +166,5 @@ cython_debug/
 /images/flask/requirements.txt
 /flask_app.db
 /pandas_process_testing.ipynb
+/images/flask/data_functions.py
+/images/flask/valid_schema.py
