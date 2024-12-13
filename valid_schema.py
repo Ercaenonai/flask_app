@@ -1,3 +1,4 @@
+# JSON schema for validation in flask app. Python file instead of .json for using jsonschema which can check for unexpected additional properties.
 valid_schema = {
     "type": "object",
     "properties": {
