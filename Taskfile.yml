@@ -12,6 +12,7 @@ tasks:
   build:
     dir: images/flask
     cmds:
+      - '{{.SHELL}} cp ../../requirements.txt requirements.txt'
       - '{{.SHELL}} cp ../../flask_json_processor.py flask_json_processor.py'
       - '{{.SHELL}} cp ../../data_functions.py data_functions.py'
       - '{{.SHELL}} cp ../../valid_schema.py valid_schema.py'
