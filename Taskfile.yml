@@ -20,7 +20,7 @@ tasks:
     deps:
       - build
     cmds:
-      - docker run --name flask -d -p 5000:5000 {{.IMAGE}}
+      - docker run --name flask -d -p  5000:5000 -v $(pwd)/flask_app.db:/app/flask_app.db {{.IMAGE}}
 
   stop:
     cmds:

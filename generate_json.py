@@ -17,7 +17,7 @@ fake = Faker()
 count = 0
 
 # while loop to randomly generate json records per sleep interval
-while count < 100:
+while count < 50:
     payload = {
         "transaction_id": fake.uuid4(),
         "customer_id": str(random.randint(10000, 99999)),
@@ -34,7 +34,7 @@ while count < 100:
         ],
         "cash_payment_pennies": random.randint(0, 10000),
         "credit_payment_pennies": random.randint(0, 20000),
-        "shipping_address": {
+        "billing_address": {
             "street": fake.street_address(),
             "city": fake.city(),
             "state": fake.state_abbr(),
