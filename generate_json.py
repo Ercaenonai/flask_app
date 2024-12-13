@@ -3,6 +3,8 @@ import time
 from faker import Faker
 import random
 
+from flask_dev_testing.schema_validation_testing import schema
+
 # local host url
 url = "http://127.0.0.1:5000/ingest"
 
@@ -13,11 +15,8 @@ headers = {
 # instantiate faker
 fake = Faker()
 
-# count for while loop break
-count = 0
-
 # while loop to randomly generate json records per sleep interval
-while count < 50:
+for i in range(50):
     payload = {
         "transaction_id": fake.uuid4(),
         "customer_id": str(random.randint(10000, 99999)),
@@ -53,9 +52,7 @@ while count < 50:
     else:
         print('Error sending JSON data', response.status_code)
 
-    # updates count per record submitted
-    count += 1
-
-    print(count)
+    # count of records submitted
+    print(i)
 
     time.sleep(.25)
