@@ -12,7 +12,6 @@ tasks:
   build:
     dir: images/flask
     cmds:
-      - '{{.SHELL}} cp ../../requirements.txt requirements.txt'
       - '{{.SHELL}} cp ../../flask_json_processor.py flask_json_processor.py'
       - docker build -t {{.IMAGE}} .
 

@@ -42,8 +42,12 @@ for i in range(50):
         "region": fake.country(),
     }
 
-    # send post request to flask server
-    response = requests.post(url, verify=True, json=payload, headers=headers)
+    try:
+        # send post request to flask server
+        response = requests.post(url, verify=True, json=payload, headers=headers)
+
+    except ConnectionError as e:
+        print(e)
 
     # ensures json is sent without error
     if response.status_code == 200:
