@@ -164,3 +164,4 @@ cython_debug/
 /task.exe
 /images/flask/flask_json_processor.py
 /images/flask/requirements.txt
+/flask_app.db
