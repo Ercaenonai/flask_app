@@ -1,5 +1,4 @@
 from flask import Flask, request, jsonify
-import json
 from jsonschema import validate, ValidationError
 import logging
 from werkzeug.exceptions import BadRequest
